@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "format": "httpie",
+    "version": "1.0.0",
+    "contentType": "collection"
+  },
+  "entry": {
+    "name": "Blog API",
+    "auth": { "type": "none" },
+    "requests": [
+      {
+        "name": "Create Post 1",
+        "method": "POST",
+        "url": "http://localhost:3000/posts",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": {
+          "type": "text",
+          "text": {
+            "format": "application/json",
+            "value": "{\n  \"title\": \"My First Blog Post\",\n  \"content\": \"This is the content of my first blog post.\",\n  \"category\": \"Technology\",\n  \"tags\": [\"Tech\", \"Programming\"]\n}"
+          }
+        }
+      },
+      {
+        "name": "Create Post 2",
+        "method": "POST",
+        "url": "http://localhost:3000/posts",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": {
+          "type": "text",
+          "text": {
+            "format": "application/json",
+            "value": "{\n  \"title\": \"My Second Blog Post\",\n  \"content\": \"This is the content of my second blog post.\",\n  \"category\": \"Science\",\n  \"tags\": [\"Science\", \"Research\"]\n}"
+          }
+        }
+      },
+      {
+        "name": "Create Post - Validation Error",
+        "method": "POST",
+        "url": "http://localhost:3000/posts",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": {
+          "type": "text",
+          "text": {
+            "format": "application/json",
+            "value": "{\n  \"title\": \"Incomplete Post\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get All Posts",
+        "method": "GET",
+        "url": "http://localhost:3000/posts",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": { "type": "none" }
+      },
+      {
+        "name": "Get All Posts - Search by term",
+        "method": "GET",
+        "url": "http://localhost:3000/posts/search",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [
+          { "name": "q", "value": "tech", "enabled": true }
+        ],
+        "pathParams": [],
+        "body": { "type": "none" }
+      },
+      {
+        "name": "Get Single Post",
+        "method": "GET",
+        "url": "http://localhost:3000/posts/:id",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [
+          { "name": "id", "value": "<post-id>", "enabled": true }
+        ],
+        "body": { "type": "none" }
+      },
+      {
+        "name": "Get Single Post - Not Found",
+        "method": "GET",
+        "url": "http://localhost:3000/posts/000000000000000000000000",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": { "type": "none" }
+      },
+      {
+        "name": "Update Post (partial)",
+        "method": "PUT",
+        "url": "http://localhost:3000/posts/:id",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [
+          { "name": "id", "value": "<post-id>", "enabled": true }
+        ],
+        "body": {
+          "type": "text",
+          "text": {
+            "format": "application/json",
+            "value": "{\n  \"title\": \"My Updated Blog Post\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Update Post - Not Found",
+        "method": "PUT",
+        "url": "http://localhost:3000/posts/000000000000000000000000",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": {
+          "type": "text",
+          "text": {
+            "format": "application/json",
+            "value": "{\n  \"title\": \"Ghost Post\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Delete Post",
+        "method": "DELETE",
+        "url": "http://localhost:3000/posts/:id",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [
+          { "name": "id", "value": "<post-id>", "enabled": true }
+        ],
+        "body": { "type": "none" }
+      },
+      {
+        "name": "Delete Post - Not Found",
+        "method": "DELETE",
+        "url": "http://localhost:3000/posts/000000000000000000000000",
+        "auth": { "type": "inherited" },
+        "headers": [],
+        "queryParams": [],
+        "pathParams": [],
+        "body": { "type": "none" }
+      }
+    ]
+  }
+}
