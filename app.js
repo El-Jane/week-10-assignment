@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./database/connectDB.js');
 const mongoose = require('mongoose');
 const BlogPost = require('./models');
 const RequestLogger = require('./middlewares/logger.js');
@@ -10,8 +9,6 @@ const ArticleRoutes = require('./routes/article.route.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const Userroutes = require ('./routes/user.route.js');
-
-connectDB();
 
 app.use(express.json());
 app.use(cors('*'));
@@ -31,7 +28,6 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(async () => {
     console.log('Connected to MongoDB');
-    await BlogPost.createIndexes();
     console.log('Indexes ensured');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })

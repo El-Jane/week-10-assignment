@@ -1,24 +1,33 @@
 const mongoose = require("mongoose");
 
-
-const userSchema = mongoose.Schema ({
-    name:{
+const userSchema = mongoose.Schema({
+    name: {
         type: String,
         required: true,
     },
 
-    email:{
+    email: {
         type: String,
         required: true,
         unique: true,
     },
 
-    password:{
+    password: {
         type: String,
         required: true,
     },
 },
- { timeStamps: true }
+    {
+        timeStamps: true,
+        toJSON: {
+            transform(
+                doc, ret
+            ) {
+                delete ret.password
+            }
+        }
+    }
+
 );
 
 const UserModel = mongoose.model('User', userSchema);
