@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const UserModel = require('../models/user.model.js');
+const UserModel = require('../../models/user.model.js');
 const jwt = require('jsonwebtoken');
 const Joi = require("joi");
 const registerUser = async (req, res, next) => {

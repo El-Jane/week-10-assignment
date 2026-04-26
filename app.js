@@ -3,12 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const BlogPost = require('./models');
-const RequestLogger = require('./middlewares/logger.js');
-const errorhandler = require('./middlewares/errorHandler.js');
-const ArticleRoutes = require('./routes/article.route.js');
+const RequestLogger = require('./Src/middlewares/logger.js');
+const errorhandler = require('./Src/middlewares/errorHandler.js');
+const ArticleRoutes = require('./Src/routes/article.route.js');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const Userroutes = require ('./routes/user.route.js');
+const Userroutes = require ('./Src/routes/user.route.js');
 
 app.use(express.json());
 app.use(cors('*'));

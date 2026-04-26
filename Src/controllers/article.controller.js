@@ -1,6 +1,6 @@
 
 const Joi = require("joi")
-const ArticleModel = require("../models/article.model.js")
+const ArticleModel = require("../../models/article.model.js")
 const postArticle = async (req, res, next) => {
 
     const articleSchema = Joi.object({
