@@ -13,10 +13,15 @@ const Userroutes = require ('./Src/routes/user.route.js');
 app.use(express.json());
 app.use(cors('*'));
 app.use(RequestLogger);
-app.use("/api", ArticleRoutes);
 app.use("/auth", Userroutes);
+app.use("/api", ArticleRoutes);
 app.use(errorhandler);
 
+app.post('/upload', (req, res) => {
+  console.log('body', req.body);
+  console.log('file', req.file);
+  res.send('Upload successful');
+});
 
 // Global error handler
 app.use((err, req, res, next) => {
