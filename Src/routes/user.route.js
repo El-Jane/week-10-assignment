@@ -10,9 +10,9 @@ router.post('/login', loginUser);
 
 const upload = multer({dest: 'uploads/' }); //Auto creates folder
 
-router.post('/upload', upload.single("picture"), (req, res) => {
-  console.log('body', req.body);
+router.post('/picture', upload.single("picture"), (req, res) => {
   console.log('file', req.file);
+  console.log('body', req.body);
   res.send('Upload successful');
 });
 
